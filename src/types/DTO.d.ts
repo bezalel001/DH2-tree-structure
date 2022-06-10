@@ -4,7 +4,7 @@ declare namespace DTO {
         name: string;
         id: string;
         path: string;
-        children: DataNode | null;
+        children: DataNode[] | null;
         parent?: { id: string };
         readableCode?: string;
         closingDate?: Date;

@@ -20,6 +20,11 @@ export const LandingPage: React.FC = () => {
                     description: "Entry point 2",
                     listAction: () => history.push("/for/Mary"),
                 },
+                {
+                    name: "Tree",
+                    description: "Entry point 3",
+                    listAction: () => history.push("/tree"),
+                },
             ],
         },
     ];

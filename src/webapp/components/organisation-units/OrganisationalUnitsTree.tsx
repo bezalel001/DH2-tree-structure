@@ -1,10 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 import TreeView from "@material-ui/lab/TreeView";
 import TreeItem from "@material-ui/lab/TreeItem";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { MinusSquare, PlusSquare } from "../icons/TreeViewIcons";
 
-export const OrganisationalUnitsTreeView = ({ data }: OrganisationalUnitsTreeViewProps) => {
+export const OrganisationalUnitsTree = ({ data }: OrganisationalUnitsTreeViewProps) => {
     const classes = useStyles();
 
     const renderTree = (nodes: DTO.DataNode) => {
@@ -21,9 +20,9 @@ export const OrganisationalUnitsTreeView = ({ data }: OrganisationalUnitsTreeVie
     return (
         <TreeView
             className={classes.root}
-            defaultCollapseIcon={<ExpandMoreIcon />}
+            defaultCollapseIcon={<MinusSquare />}
             defaultExpanded={["root"]}
-            defaultExpandIcon={<ChevronRightIcon />}
+            defaultExpandIcon={<PlusSquare />}
         >
             {renderTree(data)}
         </TreeView>
