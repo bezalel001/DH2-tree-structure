@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
             color: theme.palette.text.secondary,
             left: "0",
             top: "0",
-            transform: "translate(20%, 250%)",
+            transform: "translate(20%, 50%)",
         },
     })
 );
