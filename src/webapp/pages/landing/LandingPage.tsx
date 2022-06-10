@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Card, CardGrid } from "../../components/card-grid/CardGrid";
+import { d2TreeData } from "../../../utils/d2-list-data";
 
 export const LandingPage: React.FC = () => {
     const history = useHistory();
@@ -23,7 +24,7 @@ export const LandingPage: React.FC = () => {
                 {
                     name: "Tree",
                     description: "Entry point 3",
-                    listAction: () => history.push("/tree"),
+                    listAction: () => history.push(`/tree/${d2TreeData[0]?.path}`),
                 },
             ],
         },
