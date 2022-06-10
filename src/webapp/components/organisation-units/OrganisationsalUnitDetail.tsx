@@ -19,29 +19,41 @@ export const OrganisationalUnitDetail = ({ node }: OrganisationalUnitDetailProps
             {!edit ? (
                 <>
                     <EditOutlinedIcon onClick={() => setEdit(true)} />
-                    <StyledFormValues>
-                        <ItemContainer>
-                            <StyledLabel>{i18n.t("Name")}</StyledLabel>
-                            <StyledItem>{node.name}</StyledItem>
-                        </ItemContainer>
-                        <ItemContainer>
-                            <StyledLabel>{i18n.t("Level")}</StyledLabel>
-                            <StyledItem>{node.level}</StyledItem>
-                        </ItemContainer>
-
-                        <ItemContainer>
-                            <StyledLabel>{i18n.t("Code")}</StyledLabel>
-                            <StyledItem>{node.readableCode}</StyledItem>
-                        </ItemContainer>
-                        <ItemContainer>
-                            <StyledLabel>{i18n.t("Openining Date")}</StyledLabel>
-                            <StyledItem> {node.openiningDate}</StyledItem>
-                        </ItemContainer>
-                    </StyledFormValues>
+                    <StyledFormFields>
+                        <TextField
+                            id="org-unit-name"
+                            label="Name"
+                            value={node.name}
+                            defaultValue={node.name}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                        />
+                        <TextField
+                            id="org-unit-nam"
+                            label="Level"
+                            type="number"
+                            value={node.level}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                        />
+                        <TextField
+                            id="org-unit-code"
+                            label="Code"
+                            defaultValue={node.readableCode}
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                        />
+                    </StyledFormFields>
                 </>
             ) : (
                 <form className={classes.root} noValidate autoComplete="off">
-                    <CloseOutlinedIcon onClick={() => setEdit(false)} />
+                    <CloseOutlinedIcon onClick={() => setEdit(false)} color="secondary" />
                     <StyledFormFields>
                         <TextField
                             id="org-unit-name"
@@ -92,6 +104,9 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: theme.spacing(1),
                 width: "25ch",
             },
+            "& .MuiSvgIcon-root": {
+                cursor: "pointer",
+            },
         },
         button: {
             margin: theme.spacing(1),
@@ -103,7 +118,8 @@ const StyledFormFields = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-
+    gap: 20px;
+    margin-top: 30px;
     margin-bottom: 30px;
 `;
 
@@ -118,25 +134,4 @@ const Heading = styled.div`
     font-weight: bold;
     text-align: left;
     margin-bottom: 30px;
-`;
-
-const StyledFormValues = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 30px;
-`;
-
-const ItemContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-`;
-const StyledItem = styled.div`
-    margin: 5px;
-`;
-const StyledLabel = styled.div`
-    margin: 7px;
 `;
