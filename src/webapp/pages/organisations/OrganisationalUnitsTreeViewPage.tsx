@@ -28,7 +28,7 @@ export const OrganisationalUnitsViewPage = () => {
     const classes = useStyles();
 
     const [node, setNode] = useState(d2TreeData[0]);
-    console.log(node?.path);
+    
 
     return (
         <StyledTreeView className={classes.root}>
